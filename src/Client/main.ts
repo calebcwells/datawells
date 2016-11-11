@@ -1,4 +1,6 @@
 import './polyfills';
+import 'bootstrap';
+import './assets/styles/site.css';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
 import { AppModule } from './app/app.module';

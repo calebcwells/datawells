@@ -1,1 +1,136 @@
-﻿
+﻿@import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en");
+
+body {
+    color: #505254;
+    font-family: 'Open Sans', helvetica, arial, sans-serif;
+}
+
+.coming-soon {
+    position: relative;
+    height: 600px;
+    width: 600px;
+    margin: 0 auto;
+}
+
+.caption {
+    position: absolute;
+    top: 32%;
+    text-align: center;
+    width: 100%;
+}
+
+.caption h1 {
+    font-weight: 700;
+    font-size: 50px;
+    text-transform: uppercase;
+    letter-spacing: -1.5px;
+    line-height: .8em;
+    margin-bottom: 0;
+}
+
+.caption p {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+ul.countdown {
+    list-style: none;
+    padding: 0;
+    display: block;
+    text-align: center;
+}
+
+ul.countdown li {
+    display: inline-block;
+}
+
+ul.countdown li span {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 80px;
+}
+
+ul.countdown li p {
+    font-size: 14px;
+}
+
+ul.countdown .separator {
+    font-size: 80px;
+    line-height: 70px;
+    vertical-align: top;
+}
+
+.logo img {
+    height: 600px;
+    width: 600px;
+}
+
+@media (max-width: 768px) {
+    .coming-soon {
+        height: 450px;
+        width: 450px;
+    }
+
+    .caption h1 {
+        font-size: 40px;
+    }
+
+    .caption p {
+        font-size: 12px;
+    }
+
+    ul.countdown li span {
+        font-size: 60px;
+    }
+
+    ul.countdown li p {
+        font-size: 12px;
+    }
+
+    ul.countdown .separator {
+        font-size: 60px;
+    }
+
+    .logo img {
+        height: 450px;
+        width: 450px;
+    }
+}
+
+@media (max-width: 568px) {
+    .coming-soon {
+        height: 300px;
+        width: 300px;
+    }
+
+    .caption {
+        top: 25%;
+    }
+
+    .caption h1 {
+        font-size: 30px;
+    }
+
+    .caption p {
+        font-size: 10px;
+    }
+
+    ul.countdown li span {
+        font-size: 40px;
+        line-height: 40px;
+    }
+
+    ul.countdown li p {
+        font-size: 10px;
+    }
+
+    ul.countdown .separator {
+        font-size: 40px;
+        line-height: 35px;
+    }
+
+    .logo img {
+        height: 300px;
+        width: 300px;
+    }
+}
