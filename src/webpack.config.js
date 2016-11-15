@@ -1,10 +1,11 @@
+var IsDev = process.argv.indexOf('--env.prod') < 0;
 var Path = require('path');
 var Webpack = require('webpack');
 var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 
-module.exports = ({
+module.exports = {
     cache: true,
-    devtool: 'eval',
+    devtool: IsDev ? 'eval' : null,
     entry: {
         main: ['./Client/main.ts']
     },
@@ -18,13 +19,11 @@ module.exports = ({
         new Webpack.DllReferencePlugin({
             context: __dirname,
             manifest: require('./wwwroot/dist/vendor-manifest.json')
-        }),
-        new Webpack.DefinePlugin({
-            'process.env': {
-                'CORE': JSON.stringify(process.env.ASPNETCORE_ENVIRONMENT)
-            }
         })
-    ],
+    ].concat(IsDev ? [] : [
+        new Webpack.optimize.OccurrenceOrderPlugin(),
+        new Webpack.optimize.UglifyJsPlugin()
+    ]),
     module: {
         loaders: [
             { test: /\.ts$/, exclude: [/\.(spec|e2e)\.ts$/], loaders: ['awesome-typescript', 'angular2-template'] },
@@ -40,4 +39,4 @@ module.exports = ({
         root: Path.resolve(__dirname, 'Client'),
         modulesDirectories: ['node_modules']
     }
-});
+};

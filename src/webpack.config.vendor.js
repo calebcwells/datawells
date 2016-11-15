@@ -1,3 +1,4 @@
+var IsDev = process.argv.indexOf('--env.prod') < 0;
 var Path = require('path');
 var Webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -45,5 +46,7 @@ module.exports = {
             name: '[name]_[hash]'
         }),
         new Webpack.ContextReplacementPlugin(/angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/, __dirname)
-    ]
+    ].concat(IsDev ? [] : [
+        new Webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } })
+    ])
 };

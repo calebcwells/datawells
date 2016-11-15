@@ -19,7 +19,7 @@
     "noImplicitAny": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "./wwwroot/tsc",
+    "outDir": "./Properties/tsc",
     "sourceMap": true,
     "target": "es5",
     "types": [
