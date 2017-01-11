@@ -301,11 +301,7 @@ footer {
     }
 
     .company-name {
-        color: #fff;
         font-size: 50px;
-        font-weight: 800;
-        text-align: center;
-        text-transform: uppercase;
     }
 
     .img-logo-small {
