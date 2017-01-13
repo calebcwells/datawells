@@ -5,7 +5,7 @@ var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 
 module.exports = {
     cache: true,
-    devtool: IsDev ? 'eval' : null,
+    devtool: IsDev ? 'source-map' : null,
     entry: {
         main: ['./Client/main.ts']
     },

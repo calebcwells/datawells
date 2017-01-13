@@ -29,7 +29,8 @@ module.exports = {
             'bootstrap',
             'bootstrap/dist/css/bootstrap.css',
             'font-awesome/css/font-awesome.css',
-            'jquery'
+            'jquery',
+            'ng2-page-scroll'
         ]
     },
     output: {
