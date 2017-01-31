@@ -1,5 +1,47 @@
 ﻿@import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en");
 
+images {
+    background-image: url(../images/logo.png),
+                      url(../images/skills/skill-dotnet.jpg),
+                      url(../images/skills/skill-angular2.jpg),
+                      url(../images/skills/skill-typescript.jpg),
+                      url(../images/skills/skill-ps.jpg),
+                      url(../images/skills/skill-rxjs.jpg),
+                      url(../images/skills/skill-webpack.jpg),
+                      url(../images/skills/skill-html5.jpg),
+                      url(../images/skills/skill-css3.jpg),
+                      url(../images/skills/skill-javascript.jpg),
+                      url(../images/skills/skill-json.jpg),
+                      url(../images/skills/skill-mdl.jpg),
+                      url(../images/skills/skill-bootstrap.jpg),
+                      url(../images/skills/skill-ef.jpg),
+                      url(../images/skills/skill-sql.jpg),
+                      url(../images/skills/skill-npm.jpg),
+                      url(../images/skills/skill-git.jpg),
+                      url(../images/skills/skill-sourcetree.jpg),
+                      url(../images/skills/skill-github.jpg),
+                      url(../images/skills/skill-azure.jpg),
+                      url(../images/skills/skill-xml.jpg),
+                      url(../images/skills/skill-jquery.jpg),
+                      url(../images/skills/skill-node.jpg),
+                      url(../images/skills/skill-react.jpg),
+                      url(../images/skills/skill-aurelia.jpg),
+                      url(../images/skills/skill-breeze.jpg),
+                      url(../images/skills/skill-flux.jpg),
+                      url(../images/skills/skill-knockout.jpg),
+                      url(../images/skills/skill-less.jpg),
+                      url(../images/skills/skill-sass.jpg),
+                      url(../images/skills/skill-aws.jpg),
+                      url(../images/skills/skill-docker.jpg),
+                      url(../images/skills/skill-bower.jpg),
+                      url(../images/skills/skill-gulp.jpg),
+                      url(../images/skills/skill-jira.jpg),
+                      url(../images/skills/skill-bitbucket.jpg),
+                      url(../images/skills/skill-apache.jpg),
+                      url(../images/skills/skill-mysql.jpg),
+                      url(../images/skills/skill-nhibernate.jpg);
+}
+
 body {
     height: 100%;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -34,7 +76,7 @@ hr {
 .btn-scroll-down, .btn-scroll-down:active {
     position: absolute;
     top: -32px;
-    left: 48.5%;
+    left: 48.3%;
     height: 60px;
     width: 60px;
     background: url(../images/btn-scroll-arrow.png) no-repeat;
@@ -107,6 +149,10 @@ p {
         padding: 15px 0 15px 15px;
     }
 
+        .navbar-center .navbar-brand a {
+            padding-left: 5px;
+        }
+
     .navbar-center li {
         display: inline-block;
         float: none;
@@ -117,11 +163,10 @@ p {
             width: 100%;
             display: block;
             content: " ";
-            top: 5px;
+            top: 6px;
             left: 0;
             position: inherit;
             background: #0078f0;
-            border-top: 1px solid #fff;
         }
 
     .navbar-center .navbar-brand:hover:before {
@@ -168,6 +213,7 @@ aside {
     z-index: 2;
     background: #00376f;
     height: 125px;
+    overflow: hidden;
 }
 
 section {
@@ -202,21 +248,70 @@ section {
     top: 50px;
 }
 
-.skill {
-    width: 23%;
-    margin: 1%;
+ul.skills {
+    position: relative;
+    list-style-type: none;
+}
+
+.skills li {
+    position: relative;
     float: left;
+    background-color: #00376f;
+    color: #FFF;
+    font-size: 15px;
+    text-align: center;
+    width: 17%;
+    margin: 1%;
+    cursor: pointer;
+}
+
+    .skills li a {
+        color: #FFF;
+    }
+
+.skill-image, .skill-info {
+    float: left;
+    margin-right: -3px;
     overflow: hidden;
 }
 
-    .skill img {
-        max-width: 100%;
-        position: relative;
-    }
+.skill-image {
+    background-color: #FFF;
+}
+
+.skill-info {
+    padding: 25% 0 0 0;
+}
+
+.contact-form {
+    position: relative;
+    z-index: 2;
+    background-color: #FFF;
+}
+
+.contact-sent:before {
+  content: "";
+  display: inline-block;
+  height: 30%;
+  vertical-align: middle;
+}
+
+.contact-sent {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    z-index: 1;
+    height: 100%;
+    width: 94.9%;
+    margin: auto 0;
+    background-color: #002142;
+    color: #FFF;
+    text-align: center;
+}
 
 footer {
     position: relative;
-    z-index: 2;
+    z-index: 4;
     background: #00376f;
     height: 200px;
 }
@@ -238,6 +333,31 @@ footer {
         margin: 0 auto;
         width: 400px;
     }
+
+@media screen and (max-width: 1200px) {
+    .skills li {
+        font-size: 10px;
+    }
+
+    .skill-image img {
+        width: 127px;
+    }
+
+    .skill-info {
+        height: 95px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .skill-image img {
+        width: 95px;
+    }
+
+    .skill-info {
+        height: 69px;
+        padding: 22% 0 0 0;
+    }
+}
 
 @media screen and (max-width: 768px) {
     .navbar-toggle {
@@ -313,6 +433,27 @@ footer {
         left: 43%;
     }
 
+    .skills li {
+        width: 28%;
+    }
+
+    .skill-image img {
+        width: 100px;
+    }
+
+    .skill-info {
+        padding: 18% 0 0 0;
+    }
+
+    .contact-form {
+        width: 101%;
+    }
+
+    .contact-sent {
+        width: 90%;
+        left: 20px;
+    }
+
     .first.quote,
     .second.quote,
     footer .quote {
@@ -326,5 +467,19 @@ footer {
 
     footer .container {
         padding: 0;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .skills li {
+        font-size: 8px;
+    }
+
+    .skill-image img {
+        width: 80px;
+    }
+
+    .skill-info {
+        height: 60px;
     }
 }
