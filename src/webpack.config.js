@@ -29,7 +29,7 @@ module.exports = {
             { test: /\.ts$/, exclude: [/\.(spec|e2e)\.ts$/], loaders: ['awesome-typescript', 'angular2-template'] },
             { test: /\.html$/, loader: 'html' },
             { test: /\.css/, loader: 'style!css' },
-            { test: /\.(jpeg|jpg|gif|png|json|svg)$/, loaders: ['file-loader?name=[name].[ext]'] }
+            { test: /\.(jpeg|jpg|gif|png|json|svg)$/, loaders: ['url-loader?limit=2000&name=[name].[ext]'] }
         ]
     },
     profile: true,

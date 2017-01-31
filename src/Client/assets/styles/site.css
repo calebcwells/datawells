@@ -223,18 +223,14 @@ section {
     z-index: 4;
 }
 
-.bg-design {
-    background: url(../images/bg-design.jpg) repeat;
-    background-attachment: fixed;
-}
-
 .bg-water {
-    background: url(../images/bg-water.jpg) no-repeat center center scroll;
+    background: url(../images/bg-water.jpg) no-repeat center center;
+    background-attachment: scroll;
     background-size: cover;
 }
 
-.bg-waves {
-    background: url(../images/bg-waves.jpg) no-repeat center center;
+.bg-water-fixed {
+    background: url(../images/bg-water.jpg) no-repeat center center;
     background-attachment: fixed;
     background-size: cover;
 }
@@ -291,7 +287,7 @@ ul.skills {
 }
 
 .skill-info {
-    padding: 25% 0 0 0;
+    padding: 23% 0 23% 0;
 }
 
 .contact-form {
@@ -366,7 +362,7 @@ footer {
 
     .skill-info {
         height: 69px;
-        padding: 22% 0 0 0;
+        padding: 16% 0 0 0;
     }
 }
 
@@ -452,10 +448,6 @@ footer {
         width: 100px;
     }
 
-    .skill-info {
-        padding: 18% 0 0 0;
-    }
-
     .contact-form {
         width: 101%;
     }
@@ -483,14 +475,15 @@ footer {
 
 @media screen and (max-width: 520px) {
     .skills li {
-        font-size: 8px;
+        font-size: 7px;
     }
 
     .skill-image img {
-        width: 80px;
+        width: 69px;
     }
 
     .skill-info {
-        height: 60px;
+        height: 52px;
+        padding: 18% 0 0 0;
     }
 }
