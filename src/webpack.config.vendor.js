@@ -25,10 +25,8 @@ module.exports = {
             '@angular/platform-browser',
             '@angular/platform-browser-dynamic',
             '@angular/router',
-            'animate.css/animate.css',
             'bootstrap',
             'bootstrap/dist/css/bootstrap.css',
-            'font-awesome/css/font-awesome.css',
             'jquery',
             'ng2-page-scroll'
         ]

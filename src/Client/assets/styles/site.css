@@ -2,6 +2,7 @@
 
 images {
     background-image: url(../images/logo.png),
+                      url(../images/data-wells-loading.gif),
                       url(../images/skills/skill-dotnet.jpg),
                       url(../images/skills/skill-angular2.jpg),
                       url(../images/skills/skill-typescript.jpg),
@@ -93,13 +94,13 @@ hr {
 .btn-highlight {
     float: right;
     color: #fff;
-    background-color: #0078f0;
-    border: 1px solid #0078f0;
+    background-color: #00376f;
+    border: 1px solid #00376f;
 }
 
     .btn-highlight:hover, .btn-highlight:active {
-        background-color: #fff;
-        color: #0078f0;
+        background-color: #0078f0;
+        color: #FFF;
         border: 1px solid #0078f0;
     }
 
@@ -212,7 +213,7 @@ aside {
     position: relative;
     z-index: 2;
     background: #00376f;
-    height: 125px;
+    height: 100px;
     overflow: hidden;
 }
 
@@ -233,26 +234,6 @@ section {
     background: url(../images/bg-water.jpg) no-repeat center center;
     background-attachment: fixed;
     background-size: cover;
-}
-
-.quote {
-    color: #fff;
-    font-weight: bold;
-}
-
-.first.quote {
-    background-color: #00376f;
-    padding: 2px 5px 2px 150px;
-    position: absolute;
-    top: 50px;
-}
-
-.second.quote {
-    background-color: #00376f;
-    padding: 2px 130px 2px 5px;
-    position: absolute;
-    right: 0;
-    top: 50px;
 }
 
 ul.skills {
@@ -316,11 +297,16 @@ ul.skills {
     text-align: center;
 }
 
+.contact-sent p {
+    width: 82%;
+    margin: 0 auto;
+}
+
 footer {
     position: relative;
     z-index: 4;
     background: #00376f;
-    height: 200px;
+    height: 250px;
 }
 
     footer .container {
@@ -335,10 +321,11 @@ footer {
     }
 
     footer .quote {
-        background: #00376f;
+        color: #fff;
+        font-weight: bold;
         padding: 5px;
         margin: 0 auto;
-        width: 400px;
+        width: 60%;
     }
 
 @media screen and (max-width: 1200px) {

@@ -9,7 +9,7 @@
                     <li *ngFor="let skill of primarySkills">
                         <skill-slider>
                             <img skill-image src="{{ skill.image }}" title="{{ skill.title }}" />
-                            <div skill-info>{{ skill.title }}<br/><a href="{{ skill.url }}" target="_blank" title="{{ skill.title }}">{{ skill.friendlyUrl}}</a></div>
+                            <div skill-info>{{ skill.title }}<br/><a href="{{ skill.fullUrl }}" target="_blank" title="{{ skill.title }}">{{ skill.friendlyUrl}}</a></div>
                         </skill-slider>
                     </li>
                 </ul>
@@ -24,7 +24,7 @@
                     <li *ngFor="let skill of secondarySkills">
                         <skill-slider>
                             <img skill-image src="{{ skill.image }}" title="{{ skill.title }}" />
-                            <div skill-info>{{ skill.title }}<br /><a href="{{ skill.url }}" target="_blank" title="{{ skill.title }}">{{ skill.friendlyUrl}}</a></div>
+                            <div skill-info>{{ skill.title }}<br /><a href="{{ skill.fullUrl }}" target="_blank" title="{{ skill.title }}">{{ skill.friendlyUrl}}</a></div>
                         </skill-slider>
                     </li>
                 </ul>
