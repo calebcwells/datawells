@@ -1,8 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const postCssImport = require('postcss-import');
-const postCssNext = require('postcss-cssnext');
-const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 
 module.exports = (env) => {
     const isDev = !(env && env.prod);
@@ -34,20 +31,7 @@ module.exports = (env) => {
                 { test: /\.html$/, use: 'html-loader' },
                 {
                     test: /\.css/,
-                    use: [
-                        { loader: 'css-loader', options: { modules: true, importLoaders: 1 } },
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                plugins: () =>[
-                                    postCssImport({ addDependencyTo: webpack }),
-                                    postCssNext({
-                                        browsers: ['last 2 versions', 'ie >= 9']
-                                    })
-                                ]
-                            }
-                        }
-                    ]
+                    use: ['style-loader', 'css-loader']
                 },
                 {
                     test: /\.(jpeg|jpg|gif|png|json|svg)$/,
@@ -55,7 +39,7 @@ module.exports = (env) => {
                         {
                             loader: 'url-loader',
                             options: {
-                                limit: 2000,
+                                limit: 1500,
                                 name: '[name].[ext]'
                             }
                         },
@@ -80,7 +64,6 @@ module.exports = (env) => {
             ]
         },
         plugins: [
-            new ForkCheckerPlugin(),
             new webpack.DllReferencePlugin({
                 context: __dirname,
                 manifest: require('./wwwroot/dist/vendor-manifest.json')

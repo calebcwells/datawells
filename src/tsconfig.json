@@ -23,8 +23,7 @@
     "sourceMap": true,
     "target": "es5",
     "types": [
-      "node",
-      "webpack"
+      "node"
     ]
   },
   "exclude": [
