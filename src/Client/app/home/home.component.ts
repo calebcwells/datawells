@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
 import { PageScrollConfig } from 'ng2-page-scroll';
 import { pulse } from '../animations/pulse.animation';
 
@@ -12,11 +11,8 @@ export class HomeComponent {
     logo: string = 'dist/logo.png';
     currentYear: string;
 
-    constructor(http: Http) {
+    constructor() {
         PageScrollConfig.defaultDuration = 500;
-
-        http.get('/api/Contact/CurrentYear').subscribe(result => {
-            this.currentYear = result.json();
-        });
+        this.currentYear = new Date().getFullYear().toString();
     }
 }
