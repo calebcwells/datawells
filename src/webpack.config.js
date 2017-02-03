@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
 
 module.exports = (env) => {
     const isDev = !(env && env.prod);
@@ -31,7 +32,17 @@ module.exports = (env) => {
                 { test: /\.html$/, use: 'html-loader' },
                 {
                     test: /\.css/,
-                    use: ['style-loader', 'css-loader', 'postcss-loader']
+                    use: ['style-loader',
+                          'css-loader',
+                          {
+                              loader: 'postcss-loader',
+                              options: {
+                                  plugins: () =>[
+                                      autoprefixer()
+                                  ]
+                              }
+                          }
+                    ]
                 },
                 {
                     test: /\.(jpeg|jpg|gif|png|json|svg)$/,
@@ -74,10 +85,6 @@ module.exports = (env) => {
         ].concat(isDev
             ? []
             : [
-                new webpack.LoaderOptionsPlugin({
-                    minimize: true,
-                    debug: false
-                }),
                 new webpack.optimize.UglifyJsPlugin()
             ])
     }

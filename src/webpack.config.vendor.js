@@ -50,10 +50,6 @@ module.exports = (env) => {
             }),
             new webpack.ContextReplacementPlugin(/angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/, __dirname)
         ].concat(isDev ? [] : [
-            new webpack.LoaderOptionsPlugin({
-                minimize: true,
-                debug: false
-            }),
             new webpack.optimize.UglifyJsPlugin({
                 compress: { warnings: false }
             })])
