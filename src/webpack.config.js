@@ -31,7 +31,7 @@ module.exports = (env) => {
                 { test: /\.html$/, use: 'html-loader' },
                 {
                     test: /\.css/,
-                    use: ['style-loader', 'css-loader']
+                    use: ['style-loader', 'css-loader', 'postcss-loader']
                 },
                 {
                     test: /\.(jpeg|jpg|gif|png|json|svg)$/,
@@ -46,17 +46,20 @@ module.exports = (env) => {
                         {
                             loader: 'image-webpack-loader',
                             options: {
-                                progressive: true,
                                 gifsicle: {
                                     interlaced: false
+                                },
+                                mozjpeg: {
+                                    quality: 85
                                 },
                                 optipng: {
                                     optimizationLevel: 1
                                 },
                                 pngquant: {
-                                    quality: '80-90',
-                                    speed: 3
-                                }
+                                    quality: 85,
+                                    speed: 1
+                                },
+                                progressive: true
                             }
                         }
                     ]
