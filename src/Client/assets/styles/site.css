@@ -271,6 +271,7 @@ ul.skills {
     background-color: #00376f;
     position: absolute;
     top: 50%;
+    right: 0;
     transform: translate(0, -50%);
     padding: 29% 0 29% 0;
 }

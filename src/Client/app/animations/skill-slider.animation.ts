@@ -1,41 +1,38 @@
-import { Component, OnInit, animate, state, style, transition, trigger } from '@angular/core';
+import { Component, animate, state, style, transition, trigger } from '@angular/core';
 
 @Component({
     selector: 'skill-slider',
     animations: [
         trigger('slideOver', [
-            state('closed', style({ width: '0%', height: '*', opacity: 0 })),
+            state('closed', style({ width: '0%', height: '*' })),
             state('open', style({ width: '100%', height: '*' })),
+            transition('void => *', [
+                animate(0)
+            ]),
             transition('* => *', [
-                animate(200)
+                animate('150ms ease')
             ])
         ])
     ],
     template: `
-<div [hidden]="hidden">
-        <div class="skill-image"
-             (mouseenter)="toggle()"
-             [@slideOver]="open ? 'open' : 'closed'">
-                <ng-content select="[skill-image]"></ng-content>
-        </div>
-        <div class="skill-info"
-             (mouseleave)="toggle()"
-             [hidden]="hidden"
-             [@slideOver]="open ? 'closed' : 'open'">
-                <ng-content select="[skill-info]" ></ng-content>
-        </div>
-</div>
+    <div>
+            <div class="skill-image"
+                 (mouseenter)="toggle()"
+                 [@slideOver]="open ? 'open' : 'closed'">
+                    <ng-content select="[skill-image]"></ng-content>
+            </div>
+            <div class="skill-info"
+                 (mouseleave)="toggle()"
+                 [@slideOver]="open ? 'closed' : 'open'">
+                    <ng-content select="[skill-info]"></ng-content>
+            </div>
+    </div>
    `
 })
-export class SkillSliderComponent implements OnInit {
+export class SkillSliderComponent {
     open: boolean = true;
-    hidden: boolean = true;
 
     toggle() {
         this.open = !this.open;
-    }
-
-    ngOnInit(): void {
-        this.hidden = false;
     }
 }
