@@ -13,26 +13,33 @@
                     <p>I appreciate that you've taken the time to contact me. I'll get back with you soon.</p>
                 </div>
                 <div class="contact-form" [@slideOutDown]="state">
-                    <form novalidate>
+                    <form [formGroup]="contactForm" (ngSubmit)="sendContactInfo(contactForm.value)" novalidate>
                         <div class="form-group">
                             <label for="inputName">Name</label>
-                            <input type="text" class="form-control" id="inputName" placeholder="Name" required>
+                            <em *ngIf="contactForm.controls.name.invalid && contactForm.controls.name.touched">Required</em>
+                            <em *ngIf="!validateName() && contactForm.controls.name.invalid && contactForm.controls.name.dirty">Must be between 2 and 50 characters long</em>
+                            <input type="text" class="form-control" id="inputName" formControlName="name" placeholder="Name">
                         </div>
                         <div class="form-group">
                             <label for="inputEmail">Email Address</label>
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Email Address" required>
+                            <em *ngIf="validateEmailOrPhone() && contactForm.controls.email.touched && contactForm.controls.phone.touched">Email address or phone number is required</em>
+                            <em *ngIf="contactForm.controls.email.touched && contactForm.controls.email.invalid">Must be a valid email address</em>
+                            <input type="email" class="form-control" id="inputEmail" formControlName="email" placeholder="Email Address">
                         </div>
                         <div class="form-group">
                             <label for="inputPhoneNumber">Phone Number</label>
-                            <input type="tel" class="form-control" id="inputPhoneNumber" placeholder="Phone Number" required>
+                            <em *ngIf="contactForm.controls.phone.touched && contactForm.controls.phone.invalid">Must be a valid phone number</em>
+                            <input type="tel" class="form-control" id="inputPhoneNumber" formControlName="phone" placeholder="Phone Number">
                         </div>
                         <div class="form-group">
                             <label for="inputMessage">Message</label>
-                            <textarea rows="4" class="form-control" id="inputMessage" placeholder="Message" required></textarea>
+                            <em *ngIf="contactForm.controls.message.invalid && contactForm.controls.message.touched">Required</em>
+                            <em *ngIf="!validateMessage() && contactForm.controls.message.invalid && contactForm.controls.message.dirty">Must be between 5 and 1500 characters long</em>
+                            <textarea rows="4" class="form-control" id="inputMessage" formControlName="message" placeholder="Message"></textarea>
                         </div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-highlight" (click)="toggle($event)">Send</button>
+                                <button type="submit" [disabled]="contactForm.invalid" class="btn btn-highlight">Send</button>
                             </div>
                         </div>
                     </form>

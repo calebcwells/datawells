@@ -104,6 +104,11 @@ hr {
         border: 1px solid #0078f0;
     }
 
+    .btn-highlight[disabled]:hover {
+        background-color: #00376f;
+        border: 1px solid #00376f;
+    }
+
 a {
     color: #0078f0;
 }
@@ -277,11 +282,16 @@ ul.skills {
     background-color: #FFF;
 }
 
+    .contact-form em {
+        float: right;
+        color: #E52933;
+    }
+
 .contact-sent:before {
-  content: "";
-  display: inline-block;
-  height: 30%;
-  vertical-align: middle;
+    content: "";
+    display: inline-block;
+    height: 30%;
+    vertical-align: middle;
 }
 
 .contact-sent {
@@ -297,10 +307,10 @@ ul.skills {
     text-align: center;
 }
 
-.contact-sent p {
-    width: 82%;
-    margin: 0 auto;
-}
+    .contact-sent p {
+        width: 82%;
+        margin: 0 auto;
+    }
 
 footer {
     position: relative;

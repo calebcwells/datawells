@@ -23,7 +23,7 @@ namespace DataWells.Controllers
             new Skill("Primary", "dist/skill-javascript.jpg", "JavaScript", "https://www.javascript.com/",
                 "javascript.com"),
             new Skill("Primary", "dist/skill-json.jpg", "JSON", "http://www.json.org/", "json.org"),
-            new Skill("Primary", "dist/skill-mdl.jpg", "Material Design", "https://getmdl.io/", "getmdl.io"),
+            new Skill("Primary", "dist/skill-mdl.jpg", "Material Design", "https://material.io/", "material.io"),
             new Skill("Primary", "dist/skill-bootstrap.jpg", "Bootstrap", "http://getbootstrap.com/", "getbootstrap.com"),
             new Skill("Primary", "dist/skill-ef.jpg", "Entity Framework", "https://docs.microsoft.com/en-us/ef/",
                 "docs.microsoft.com/ef"),
