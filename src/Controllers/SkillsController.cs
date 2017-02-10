@@ -62,6 +62,7 @@ namespace DataWells.Controllers
         });
 
         [HttpGet("[action]")]
+        [ResponseCache(Duration = 604800)]
         public List<Skill> SkillsList()
         {
             return _skillList;
