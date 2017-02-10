@@ -10,19 +10,18 @@ import { Component, animate, state, style, transition, trigger } from '@angular/
                 animate(0)
             ]),
             transition('* => *', [
-                animate('150ms ease')
+                animate('150ms 40ms ease')
             ])
         ])
     ],
     template: `
-    <div>
+    <div (mouseenter)="toggle()"
+         (mouseleave)="toggle()">
             <div class="skill-image"
-                 (mouseenter)="toggle()"
                  [@slideOver]="open ? 'open' : 'closed'">
                     <ng-content select="[skill-image]"></ng-content>
             </div>
             <div class="skill-info"
-                 (mouseleave)="toggle()"
                  [@slideOver]="open ? 'closed' : 'open'">
                     <ng-content select="[skill-info]"></ng-content>
             </div>

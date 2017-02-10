@@ -16,25 +16,25 @@
                     <form [formGroup]="contactForm" (ngSubmit)="sendContactInfo(contactForm.value)" novalidate>
                         <div class="form-group">
                             <label for="inputName">Name</label>
-                            <em *ngIf="contactForm.controls.name.invalid && contactForm.controls.name.touched">Required</em>
-                            <em *ngIf="!validateName() && contactForm.controls.name.invalid && contactForm.controls.name.dirty">Must be between 2 and 50 characters long</em>
+                            <em *ngIf="contactForm.controls.name.touched && contactForm.controls.name.hasError('required')">Required</em>
+                            <em *ngIf="!validateName() && !contactForm.controls.name.hasError('required') && contactForm.controls.name.invalid && contactForm.controls.name.dirty">Must be between 2 and 50 characters long</em>
                             <input type="text" class="form-control" id="inputName" formControlName="name" placeholder="Name">
                         </div>
                         <div class="form-group">
                             <label for="inputEmail">Email Address</label>
                             <em *ngIf="validateEmailOrPhone() && contactForm.controls.email.touched && contactForm.controls.phone.touched">Email address or phone number is required</em>
-                            <em *ngIf="contactForm.controls.email.touched && contactForm.controls.email.invalid">Must be a valid email address</em>
+                            <em *ngIf="contactForm.controls.email.invalid && contactForm.controls.email.touched">Must be a valid email address</em>
                             <input type="email" class="form-control" id="inputEmail" formControlName="email" placeholder="Email Address">
                         </div>
                         <div class="form-group">
                             <label for="inputPhoneNumber">Phone Number</label>
-                            <em *ngIf="contactForm.controls.phone.touched && contactForm.controls.phone.invalid">Must be a valid phone number</em>
+                            <em *ngIf="contactForm.controls.phone.invalid && contactForm.controls.phone.touched">Must be a valid phone number</em>
                             <input type="tel" class="form-control" id="inputPhoneNumber" formControlName="phone" placeholder="Phone Number">
                         </div>
                         <div class="form-group">
                             <label for="inputMessage">Message</label>
-                            <em *ngIf="contactForm.controls.message.invalid && contactForm.controls.message.touched">Required</em>
-                            <em *ngIf="!validateMessage() && contactForm.controls.message.invalid && contactForm.controls.message.dirty">Must be between 5 and 1500 characters long</em>
+                            <em *ngIf="contactForm.controls.message.touched && contactForm.controls.message.hasError('required')">Required</em>
+                            <em *ngIf="!validateMessage() && !contactForm.controls.message.hasError('required') && contactForm.controls.message.invalid && contactForm.controls.message.dirty">Must be between 5 and 1500 characters long</em>
                             <textarea rows="4" class="form-control" id="inputMessage" formControlName="message" placeholder="Message"></textarea>
                         </div>
                         <div class="row">
