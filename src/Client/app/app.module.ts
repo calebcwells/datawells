@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
+import { UniversalModule } from 'angular2-universal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { AppComponent } from './app.component';
@@ -22,8 +21,7 @@ import { ContactComponent } from './contact/contact.component';
         ContactComponent
     ],
     imports: [
-        BrowserModule,
-        HttpModule,
+        UniversalModule,
         FormsModule,
         ReactiveFormsModule,
         Ng2PageScrollModule.forRoot()
