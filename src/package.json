@@ -46,7 +46,7 @@
     "raw-loader": "0.5.1",
     "style-loader": "0.13.1",
     "tslint": "4.4.2",
-    "typescript": "2.0.10",
+    "typescript": "2.1.6",
     "url-loader": "0.5.7",
     "webpack": "2.2.1",
     "webpack-hot-middleware": "2.16.1"

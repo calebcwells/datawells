@@ -1,5 +1,4 @@
-﻿using System;
-using DataWells.Models;
+﻿using DataWells.Models;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using MailKit.Net.Smtp;
@@ -18,7 +17,6 @@ namespace DataWells.Controllers
             _configuration = configuration;
         }
 
-
         [HttpPost]
         public void Post([FromBody] Contact contact)
         {
@@ -34,7 +32,7 @@ namespace DataWells.Controllers
             using (var client = new SmtpClient())
             {
                 client.Connect("smtp.sparkpostmail.com", 587, SecureSocketOptions.StartTls);
-                client.Authenticate("SMTP_Injection", _configuration["MailService:ApiKey"]);
+                client.Authenticate("SMTP_Injection", _configuration["MailService"]);
                 client.Send(emailMessage);
                 client.Disconnect(true);
             }

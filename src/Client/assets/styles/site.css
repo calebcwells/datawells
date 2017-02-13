@@ -263,7 +263,6 @@ ul.skills {
 
 .skill-image, .skill-info {
     float: left;
-    margin-right: -3px;
     overflow: hidden;
 }
 
@@ -336,35 +335,54 @@ footer {
         font-weight: bold;
         padding: 5px;
         margin: 0 auto;
-        width: 60%;
+        width: 50%;
     }
 
 @media screen and (max-width: 1200px) {
     .skills li {
-        font-size: 10px;
+        font-size: .65em;
     }
 
     .skill-image img {
         width: 127px;
     }
 
-    .skill-info {
-        height: 95px;
+    footer {
+        height: 300px;
     }
 }
 
 @media screen and (max-width: 1000px) {
-    .skill-image img {
-        width: 95px;
+    h1, h2 {
+        font-size: 1.9em;
     }
 
-    .skill-info {
-        height: 69px;
-        padding: 16% 0 16% 0;
+    p, label, input {
+        font-size: .95em;
+    }
+
+    aside {
+        height: 80px;
+    }
+
+    .skills li {
+        font-size: .5em;
+    }
+
+    .skill-image img {
+        width: 95px;
     }
 }
 
 @media screen and (max-width: 768px) {
+    h1, h2 {
+        font-size: 1.8em;
+    }
+
+    p, label, input {
+        font-size: .9em;
+    }
+
     .navbar-toggle {
         border: none !important;
     }
@@ -435,7 +453,11 @@ footer {
     }
 
     .btn-scroll-down {
-        left: 43%;
+        display: none;
+    }
+
+    section {
+        padding: 30px 0 60px 0;
     }
 
     .skills li {
@@ -444,6 +466,11 @@ footer {
 
     .skill-image img {
         width: 100px;
+    }
+
+    .skill-info {
+        height: 100%;
+        padding: 18% 0 18% 0;
     }
 
     .contact-form {
@@ -455,8 +482,8 @@ footer {
         left: 20px;
     }
 
-    footer .quote {
-        font-size: 13px;
+    footer {
+        height: 250px;
     }
 
     footer .container {
@@ -465,31 +492,38 @@ footer {
 }
 
 @media screen and (max-width: 520px) {
+    h1, h2 {
+        font-size: 1.4em;
+    }
+
+    p, label, input {
+        font-size: .7em;
+    }
+
+    section {
+        padding: 10px 0 50px 0;
+    }
+
+    aside {
+        height: 60px;
+    }
+
     .skills li {
-        font-size: 7px;
+        font-size: .4em;
     }
 
     .skill-image img {
         width: 69px;
     }
-
-    .skill-info {
-        height: 52px;
-        padding: 18% 0 18% 0;
-    }
 }
 
 @media screen and (max-width: 380px) {
     .skills li {
-        font-size: 6px;
+        font-size: .3em;
     }
 
     .skill-image img {
         width: 54px;
-    }
-
-    .skill-info {
-        padding: 29% 0 29% 0;
     }
 
     .contact-form {
