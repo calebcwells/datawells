@@ -98,7 +98,7 @@ hr {
     border: 1px solid #00376f;
 }
 
-    .btn-highlight:hover, .btn-highlight:active {
+    .btn-highlight:hover, .btn-highlight:active, .btn-highlight:focus {
         background-color: #0078f0;
         color: #FFF;
         border: 1px solid #0078f0;
@@ -229,6 +229,15 @@ section {
     z-index: 4;
 }
 
+section#about p {
+    padding: 0 30px;
+}
+
+section#contact .col-lg-8 {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
 .bg-water {
     background: url(../images/bg-water.jpg) no-repeat center center;
     background-attachment: scroll;
@@ -296,21 +305,15 @@ ul.skills {
 
 .contact-sent {
     position: absolute;
-    top: 1px;
-    left: 15px;
+    top: 0;
+    left: 2%;
     z-index: 1;
-    height: 99%;
-    width: 94.9%;
-    margin: auto 0;
+    height: 90%;
+    width: 96%;
     background-color: #002142;
     color: #FFF;
     text-align: center;
 }
-
-    .contact-sent p {
-        width: 82%;
-        margin: 0 auto;
-    }
 
 footer {
     position: relative;
@@ -339,6 +342,10 @@ footer {
     }
 
 @media screen and (max-width: 1200px) {
+    section#about p {
+        padding: 0;
+    }
+
     .skills li {
         font-size: .65em;
     }
@@ -434,19 +441,6 @@ footer {
                 display: none;
             }
 
-    header {
-        height: 450px;
-    }
-
-    .header-content img {
-        max-width: 300px;
-        max-height: 290px;
-    }
-
-    .company-name {
-        font-size: 50px;
-    }
-
     .img-logo-small {
         width: 40px;
         height: 39px;
@@ -460,26 +454,21 @@ footer {
         padding: 30px 0 60px 0;
     }
 
+    section#skills .col-xs-offset-1 {
+        margin-left: 5%;
+    }
+
     .skills li {
-        width: 28%;
+        width: 23%;
     }
 
     .skill-image img {
-        width: 100px;
+        width: 88px;
     }
 
     .skill-info {
         height: 100%;
         padding: 18% 0 18% 0;
-    }
-
-    .contact-form {
-        width: 101%;
-    }
-
-    .contact-sent {
-        width: 90%;
-        left: 20px;
     }
 
     footer {
@@ -500,8 +489,20 @@ footer {
         font-size: .7em;
     }
 
+    .header-content img {
+        max-width: 80%;
+    }
+
+    .company-name {
+        font-size: 2.8em;
+    }
+
     section {
         padding: 10px 0 50px 0;
+    }
+
+    section#skills .col-xs-offset-1 {
+        margin-left: 4%;
     }
 
     aside {
@@ -515,10 +516,20 @@ footer {
     .skill-image img {
         width: 69px;
     }
+
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 460px) {
+    header {
+        height: 450px;
+    }
+
+    section#skills .col-xs-offset-1 {
+        margin-left: 6.5%;
+    }
+
     .skills li {
+        width: 28%;
         font-size: .3em;
     }
 
@@ -526,7 +537,7 @@ footer {
         width: 54px;
     }
 
-    .contact-form {
-        width: 102%;
+    .contact-sent p {
+        font-size: .6em;
     }
 }

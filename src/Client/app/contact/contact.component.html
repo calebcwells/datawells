@@ -10,7 +10,7 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <div class="contact-sent">
                     <h3>Thank You!</h3>
-                    <p>I appreciate that you've taken the time to contact me. I'll get back with you soon.</p>
+                    <p>I appreciate that you've taken the time to contact me.<br />I'll get back with you soon.</p>
                 </div>
                 <div class="contact-form" [@slideOutDown]="state">
                     <form [formGroup]="contactForm" (ngSubmit)="sendContactInfo(contactForm.value)" novalidate>
@@ -37,10 +37,8 @@
                             <em *ngIf="!validateMessage() && !contactForm.controls.message.hasError('required') && contactForm.controls.message.invalid && contactForm.controls.message.dirty">Must be between 5 and 1500 characters long</em>
                             <textarea rows="4" class="form-control" id="inputMessage" formControlName="message" placeholder="Message"></textarea>
                         </div>
-                        <div class="row">
-                            <div class="form-group col-xs-12">
-                                <button type="submit" [disabled]="contactForm.invalid" class="btn btn-highlight">Send</button>
-                            </div>
+                        <div class="form-group">
+                            <button type="submit" [disabled]="contactForm.invalid" class="btn btn-highlight">Send</button>
                         </div>
                     </form>
                 </div>
