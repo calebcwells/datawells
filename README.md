@@ -1,0 +1,1 @@
+I am in the process of retracing the steps I took to develop this website. If you are interested you can follow along at http://codejourney.co/. The posts will match up with commits to the tutorial branch.
