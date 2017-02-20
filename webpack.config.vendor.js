@@ -1,18 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const merge = require('webpack-merge');
+const extractCss = new ExtractTextPlugin('vendor.css');
 
 module.exports = (env) => {
-    const extractCSS = new ExtractTextPlugin('vendor.css');
-    const isDevBuild = !(env && env.prod);
-    const sharedConfig = {
-        stats: { modules: false },
-        resolve: { extensions: [ '.js' ] },
-        module: {
-            rules: [
-                { test: /\.(png|woff|woff2|eot|ttf|svg)(\?|$)/, use: 'url-loader?limit=100000' }
-            ]
+    const isDev = !(env && env.prod);
+    const config = {
+        context: __dirname,
+        resolve: {
+            extensions: ['.js']
         },
         entry: {
             vendor: [
@@ -20,69 +16,44 @@ module.exports = (env) => {
                 '@angular/compiler',
                 '@angular/core',
                 '@angular/http',
+                '@angular/forms',
                 '@angular/platform-browser',
                 '@angular/platform-browser-dynamic',
                 '@angular/router',
-                '@angular/platform-server',
-                'angular2-universal',
-                'angular2-universal-polyfills',
                 'bootstrap',
                 'bootstrap/dist/css/bootstrap.css',
-                'es6-shim',
-                'es6-promise',
-                'event-source-polyfill',
-                'jquery',
-                'zone.js',
+                'jquery'
             ]
         },
         output: {
-            publicPath: '/dist/',
+            path: path.join(__dirname, 'wwwroot', 'dist'),
             filename: '[name].js',
             library: '[name]_[hash]'
         },
-        plugins: [
-            new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }), // Maps these identifiers to the jQuery package (because Bootstrap expects it to be a global variable)
-            new webpack.ContextReplacementPlugin(/\@angular\b.*\b(bundles|linker)/, path.join(__dirname, './ClientApp')), // Workaround for https://github.com/angular/angular/issues/11580
-            new webpack.IgnorePlugin(/^vertx$/) // Workaround for https://github.com/stefanpenner/es6-promise/issues/100
-        ]
-    };
-
-    const clientBundleConfig = merge(sharedConfig, {
-        output: { path: path.join(__dirname, 'wwwroot', 'dist') },
         module: {
-            rules: [
-                { test: /\.css(\?|$)/, use: extractCSS.extract({ use: 'css-loader' }) }
+            loaders: [
+                { test: /\.css/, loader: extractCss.extract(['css-loader']) },
+                {
+                    test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
+                    loader: 'url-loader?limit=100000&name=[name].[ext]'
+                },
+                { test: /\.json$/, loader: 'json-loader' }
             ]
         },
         plugins: [
-            extractCSS,
+            extractCss,
+            new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }),
             new webpack.DllPlugin({
                 path: path.join(__dirname, 'wwwroot', 'dist', '[name]-manifest.json'),
                 name: '[name]_[hash]'
-            })
-        ].concat(isDevBuild ? [] : [
-            new webpack.optimize.UglifyJsPlugin()
-        ])
-    });
+            }),
+            new webpack.ContextReplacementPlugin(/\@angular\b.*\b(bundles|linker)/, path.join(__dirname, './Client')), // Workaround for https://github.com/angular/angular/issues/11580
+            new webpack.IgnorePlugin(/^vertx$/) // Workaround for https://github.com/stefanpenner/es6-promise/issues/100
+        ].concat(isDev ? [] : [
+            new webpack.optimize.UglifyJsPlugin({
+                compress: { warnings: false }
+            })])
+    };
 
-    const serverBundleConfig = merge(sharedConfig, {
-        target: 'node',
-        resolve: { mainFields: ['main'] },
-        output: {
-            path: path.join(__dirname, 'ClientApp', 'dist'),
-            libraryTarget: 'commonjs2',
-        },
-        module: {
-            rules: [ { test: /\.css(\?|$)/, use: ['to-string-loader', 'css-loader'] } ]
-        },
-        entry: { vendor: ['aspnet-prerendering'] },
-        plugins: [
-            new webpack.DllPlugin({
-                path: path.join(__dirname, 'ClientApp', 'dist', '[name]-manifest.json'),
-                name: '[name]_[hash]'
-            })
-        ]
-    });
-
-    return [clientBundleConfig, serverBundleConfig];
-}
+    return config;
+};
