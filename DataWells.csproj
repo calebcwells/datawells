@@ -16,6 +16,11 @@
 
     <Content Remove="Client\**" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="Program.d.ts">
+      <DependentUpon>Program.cs</DependentUpon>
+    </None>
+  </ItemGroup>
   <Target Name="RunWebpack" AfterTargets="ComputeFilesToPublish">
     <Exec Command="npm install" />
     <Exec Command="node node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js --env.prod" />

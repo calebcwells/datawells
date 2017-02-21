@@ -31,7 +31,7 @@ module.exports = (env) => {
                 { test: /\.html$/, use: 'html-loader' },
                 {
                     test: /\.css/,
-                    use: ['style-loader', 'css-loader']
+                    use: ['to-string-loader', 'css-loader']
                 },
                 {
                     test: /\.(jpeg|jpg|gif|png|json|svg)$/,

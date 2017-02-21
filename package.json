@@ -19,7 +19,7 @@
   "devDependencies": {
     "@types/node": "6.0.42",
     "angular2-template-loader": "0.6.2",
-    "aspnet-webpack": "1.0.17",
+    "aspnet-webpack": "1.0.27",
     "awesome-typescript-loader": "3.0.0-beta.13",
     "css-loader": "0.25.0",
     "expose-loader": "0.7.1",
@@ -29,6 +29,7 @@
     "json-loader": "0.5.4",
     "raw-loader": "0.5.1",
     "style-loader": "0.13.1",
+    "to-string-loader": "1.1.5",
     "typescript": "2.0.3",
     "url-loader": "0.5.7",
     "webpack": "2.2.0",
