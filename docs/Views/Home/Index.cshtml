@@ -1,0 +1,14 @@
+﻿<data-wells-app asp-prerender-module="Client/dist/main-server">
+    <div style="position: relative; margin: 0 auto; height: 100px; width: 100px;">
+        <div style="position: absolute; top: 200%;">
+            <img src="dist/data-wells-loading.gif"/>
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</data-wells-app>
+
+<script src="~/dist/vendor.js" asp-append-version="true"></script>
+
+@section scripts {
+    <script src="~/dist/main-client.js" asp-append-version="true"></script>
+}
